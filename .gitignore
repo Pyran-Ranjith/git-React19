@@ -1,0 +1,38 @@
+# Dependencies
+node_modules/
+.pnpm/
+.yarn/
+
+# Build output
+dist/
+build/
+.next/
+out/
+
+# Cache
+.cache/
+.turbo/
+
+# Environment variables
+.env*
+!.env.example
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor/IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Optional (if using Babel/ESLint)
+.eslintcache
+babel.config.json
