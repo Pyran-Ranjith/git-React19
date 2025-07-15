@@ -1,31 +1,41 @@
-import { createRoot } from 'react-dom/client';
 import { useState } from 'react';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const [name, setName] = useState('World');
 
-  // React 19's new "action" API (simplified form handling)
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
-    setName(formData.get('name') || 'World');
+    const newName = formData.get('name');
+    setName(newName || 'World');
   };
 
   return (
-    <div>
-      <h1>Hello, {name}!</h1>
-      <form action={handleSubmit}>
-        <input 
-          type="text" 
-          name="name" 
-          placeholder="Enter your name" 
-          defaultValue={name} 
-        />
-        <button type="submit">Update</button>
-      </form>
+    <div className="container mt-5">
+      <div className="card shadow">
+        <div className="card-body text-center">
+          <h1 className="display-4 text-primary">Hello, {name}!</h1>
+          
+          <form onSubmit={handleSubmit} className="mt-4">
+            <div className="mb-3">
+              <input
+                type="text"
+                name="name"
+                className="form-control"
+                placeholder="Enter your name"
+                defaultValue={name}
+                key={name}  // Important: Force re-render on change
+              />
+            </div>
+            <button type="submit" className="btn btn-primary">
+              Update Greeting
+            </button>
+          </form>
+        </div>
+      </div>
     </div>
   );
 }
 
-const root = createRoot(document.getElementById('root'));
-root.render(<App />);
+export default App;
