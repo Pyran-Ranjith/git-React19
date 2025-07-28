@@ -11,18 +11,18 @@
 
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
-      const button = <button>hello</button>;
-      const paragraph = <p>paragraph of text</p>;
-
-      const div = (
-        <div>
-          <button>hello</button>
-          <p>paragraph of text {2 + 2}</p>
-        </div>
-      );
+      function App() {
+        return (
+          <>
+            <p>Cotton socks</p>
+            <p>Price: $10.90</p>
+            <button>Add to Cart</button>
+          </>
+        );
+      }
 
       const container = document.querySelector('.js-container');
-      ReactDOM.createRoot(container).render(div);
+      ReactDOM.createRoot(container).render(<App />);
     </script>
   </body>
 </html>
