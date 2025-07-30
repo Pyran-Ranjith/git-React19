@@ -1,18 +1,7 @@
-
 <!DOCTYPE html>
 <html>
   <head>
     <title>React Basics</title>
-    <style>
-      .on-button {
-        background-color: rgb(25, 135, 84);
-        color: white;
-        border: none;
-        padding: 10px 15px;
-        border-radius: 5px;
-        cursor: pointer;
-      }
-    </style>
   </head>
   <body>
     <div class="js-container"></div>
@@ -23,11 +12,21 @@
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
       function App() {
+        const [inputText, setInputText] = React.useState('');
+
+        function saveInputText(event) {
+          setInputText(event.target.value);
+        }
+
         return (
-          <button className="on-button">
-            ON
-          </button>
-        );
+          <>
+            <input
+              onChange={saveInputText}
+              placeholder="Type a name here"
+            />
+            <p>Hello {inputText}</p>
+          </>
+        )
       }
 
       const container = document.querySelector('.js-container');
